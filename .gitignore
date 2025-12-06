@@ -1,0 +1,11 @@
+# Rust
+/target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Compiled objects
+*.o
+
+# Editor-specific
+flycheck*/
