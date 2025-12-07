@@ -15,4 +15,42 @@ It uses a controller-worker model:
 
 ## How to Run
 
-*(TODO: Add instructions on how to start the controller and worker(s) and how to submit a build job.)*
+### Build the project
+
+```bash
+cargo build --release
+```
+
+### Local Build Mode
+
+Compile C files using local workers:
+
+```bash
+dbs build file1.c file2.c file3.c --workers 4
+```
+
+### Server Mode
+
+Start a server that accepts client file submissions:
+
+```bash
+# Local network only
+dbs serve --workers 4
+
+# Accessible from other machines (use 0.0.0.0)
+dbs serve --workers 4 --address 0.0.0.0:9000
+```
+
+### Client Mode
+
+Submit files to a remote build server:
+
+```bash
+# Submit to localhost
+dbs submit file1.c file2.c file3.c
+
+# Submit to remote server
+dbs submit file1.c file2.c --server 192.168.1.100:9000
+```
+
+
